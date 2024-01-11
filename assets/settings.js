@@ -1,47 +1,51 @@
 const questions = [
     {
-        question:  "Commonly used data types DO NOT include the following: ",
-        answerA: "strings",
-        answerB: "booleans",
-        answerC: "alerts",
-        answerD: "numbers",
-        correctanswer: "answerC"
+    question:  "Commonly used data types DO NOT include the following: ",
+    answers: {
+        a:"strings",
+        B: "booleans",
+        C: "alerts",
+        D: "numbers",
+     },
+        correctAnswer: "C"   
     },
 
     {
         question:  "The condition if/else statement is enclosed within:  ",
-        answerA: "numbers and strings",
-        answerB: "curly braces",
-        answerC: "parenthesis",
-        answerD: "square brackets",
-        correctanswer: "answerB"
+        A: "numbers and strings",
+        B: "curly braces",
+        C: "parenthesis",
+        D: "square brackets",
+        correctAnswer: "B"
     },
 
     {
         question:  "Arrays in JavaScript can be used to store: ",
-        answerA: "numbers and strings",
-        answerB: "other arrays",
-        answerC: "booleans",
-        answerD: "all of the above",
-        correctanswer: "answerD"
+        A: "numbers and strings",
+        B: "other arrays",
+        C: "booleans",
+        D: "all of the above",
+        correct: "D"
     },
 
     {
         question:  "String valuesmust be enclosed within ________ when assigned to variables: ",
-        answerA: "commas",
-        answerB: "curly braces",
-        answerC: "quotes",
-        answerD: "parenthesis",
-        correctanswer: "answerC"
+        A: "commas",
+        B: "curly braces",
+        C: "quotes",
+        D: "parenthesis",
+        correct: "C"
     },
     {
         question:  "A very useful tool in debugging for printing content to the debugger is: ",
-        answerA: "JavaScript",
-        answerB: "Terminal/Bash",
-        answerC: "for loops",
-        answerD: "console.log",
-        correctanswer: "answerD"
+        A: "JavaScript",
+        B: "Terminal/Bash",
+        C: "for loops",
+        D: "console.log",
+        correctAnswer: "D"
     },
 
-
+// const quizContainer = document.getElementById("quiz");
+// const resultsContainer = document.getElementById("start");
+// const submitButton = document.getElementById("submit");
 ]
