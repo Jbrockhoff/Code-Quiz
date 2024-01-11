@@ -11,5 +11,6 @@ https://dev.to/sulaimonolaniran/building-a-simple-quiz-with-html-css-and-javascr
 
 https://www.sitepoint.com/simple-javascript-quiz/
 
+http://w3schools.com for html, CSS, and Javascript
 
-
+https://www.geeksforgeeks.org/how-to-create-a-simple-javascript-quiz/

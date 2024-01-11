@@ -1,4 +1,26 @@
 button {
     color: white;
-    background-image: linear-gradient(purple, rgb(219, 149, 219))
+    background-image: linear-gradient(purple, rgb(219, 149, 219));
+    border-radius: 8px;
+    align-content: center;
 }
+
+header {
+    font-size: 100%;
+    color: purple;
+    padding: 10px;
+}
+
+.timer-text {
+    text-align: right;
+}
+
+.timer-count {
+    text-align: right;
+}
+/* div {
+    align-content: center;
+};
+ */
+
+
