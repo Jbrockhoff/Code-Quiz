@@ -8,23 +8,39 @@
     
     <title>Coding Quiz</title>
   </head>
-  <body>
-    <header>
-      <div class= "score-count">View High Scores</div>
-      <!--need countdown timer here-->
-    </header>
-      <div class="quiz-intro"></div>
-          <div class = "timer-text">Timer:</div>
-          <div class= "timer-count">100</div>
-          
-        </div>
 
+  <body>
+
+    <div class= "score-count"><a href="highscores.html">View High Scores</a></div>
+    <div class = "timer-text">Timer: <span id = "timer-count">100</span></div>
+
+    <div class="wrapper>">
+      <div id="welcome-screen" class="welcome">
+        <h1>Coding Quiz</h1>
+        <p>Want to test your coding knowledge? Answer these coding-related 
+          questions within the time limit and see how you do! The clock will run down an extra 
+          15 seconds for every incorrect answer. Good luck!
+        </p>
+        <button id="start">Start Quiz!</button>
+      </div>
+      
+      <div id="questions" class="hide">
+        <h2 id="question-number"></h2>
+        <div id="answer" class="options"></div>
       </div>
 
-    <div id="quiz"></div>
-    <button id="submit">Submit</button>
+      <div id="final-page" class="hide">
+        <h2>Quiz Complete!</h2>
+        <p>Here is your final score: <span id="score"></span></p>
+        <p>Enter your intials: <input type="text" id="intials" max="2" />
+          <button id="submit">Submit</button>
+        </p>
+      </div>
+    </div>
 
-    <script type="javascript" src="./assets/setting.js">
-    </script>
+    <script src="./assets/setting.js"></script>
+    <scrpit src="./assets/highscores.js"></scrpit>
   </body>
-  
+
+  </html>
+   

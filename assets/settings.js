@@ -2,17 +2,15 @@ var quizContainer = document.getElementById("quiz");
 var resultsContainer = document.getElementById("results");
 var submitButton = document.getElementById("submit");
 
-var questions = [
+var question = [
     {
-    question:  "Commonly used data types DO NOT include the following: ",
-    answers: {
-        a:"strings",
+    question: "Commonly used data types DO NOT include the following: ", 
+        A:"strings",
         B: "booleans",
         C: "alerts",
         D: "numbers",
-     },
-        correctAnswer: "C"   
-    },
+        correctAnswer: "C"
+    },  
 
     {
         question:  "The condition if/else statement is enclosed within:  ",
@@ -54,9 +52,9 @@ var correctResponse = "";
 var timer;
 var timerCount;
 
-function init() {
-    ;
-  }
+// function init() {
+//     ;
+//   }
 
 //var quizContainer = document.getElementById("quiz");
 //var resultsContainer = document.getElementById("results");
@@ -78,8 +76,7 @@ function init() {
 // answers: {A: "JavaScrpit", B: "Terminal/Bash", C: "for loops", D: "console.log"}, correctAnswer: "D"}
 // ]
 
-//need timer to be at the top in the header
-//need start page/button
+
 //need questions in buttons?
 //need rules to hide buttons and show buttons
 //need to let client know if their answer was correct or wrong
