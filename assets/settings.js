@@ -3,18 +3,19 @@ var quizContainer = document.getElementById("quiz");
 var resultsContainer = document.getElementById("results");
 var finalScore = document.getElementById("score");
 var submitButton = document.getElementById("submit");
+
 var scoreCount = document.getElementsByClassName("score-count");
 var timerText = document.getElementsByClassName("timer-text");
 
 
-var question = [
+var questions = [
     {
     question: "Commonly used data types DO NOT include the following: ", 
         A:"strings",
         B: "booleans",
         C: "alerts",
         D: "numbers",
-        correctAnswer: "C"
+        correctAnswer: "alerts",
     },  
 
     {
@@ -23,7 +24,7 @@ var question = [
         B: "curly braces",
         C: "parentheses",
         D: "square brackets",
-        correctAnswer: "B"
+        correctAnswer: ""
     },
 
     {
