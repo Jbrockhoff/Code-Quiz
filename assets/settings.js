@@ -1,13 +1,12 @@
 
-var quizContainer = document.getElementById("quiz");
-var resultsContainer = document.getElementById("results");
-var finalScore = document.getElementById("score");
-var submitButton = document.getElementById("submit");
+// var quizContainer = document.querySelector("#quiz");
+// var resultsContainer = document.querySelector("#results");
+// var finalScore = document.querySelector("#score");
+// var submitButton = document.querySelector("#submit");
 
-var scoreCount = document.getElementsByClassName("score-count");
-var timerText = document.getElementsByClassName("timer-text");
+// var scoreCount = document.querySelector("score-count");
 
-
+//created array for question sets
 var questions = [
     {
     question: "Commonly used data types DO NOT include the following: ", 
@@ -24,7 +23,7 @@ var questions = [
         B: "curly braces",
         C: "parentheses",
         D: "square brackets",
-        correctAnswer: ""
+        correctAnswer: "curly braces"
     },
 
     {
@@ -33,7 +32,7 @@ var questions = [
         B: "other arrays",
         C: "booleans",
         D: "all of the above",
-        correctAnswer: "D"
+        correctAnswer: "all of the above"
     },
 
     {
@@ -42,7 +41,7 @@ var questions = [
         B: "curly braces",
         C: "quotes",
         D: "parentheses",
-        correctAnswer: "C"
+        correctAnswer: "quotes"
     },
     {
         question:  "A very useful tool in debugging for printing content to the debugger is: ",
@@ -50,14 +49,42 @@ var questions = [
         B: "Terminal/Bash",
         C: "for loops",
         D: "console.log",
-        correctAnswer: "D"
+        correctAnswer: "console.log"
     },
 ]
 
-var correctResponse = "";
+//set vars for objects used in timer
+var startBtn = document.querySelector("#start");
+var timerCount = document.querySelector("#timer-count");
+var timerText= document.querySelector(".timer-text");
 var timer;
-var timerCount;
+var timeLeft = 100;
 
+var question = questions.map(questionGen);
+
+function questionGen() {
+    for (var i = 0; i < questions.length; i++) {
+        questions;
+    }
+    
+    if (question) {
+        //n
+    }
+}
+//created a countdown timer
+function startTimer() {
+    timer = setInterval(function () {
+    timeLeft--;
+    timerCount.textContent = timeLeft;
+
+    if (timeLeft === 0) {
+        clearInterval(timer)
+    }
+    return timerCount;
+    }, 1000);
+}
+
+startBtn.addEventListener("click", startTimer);
 // function init() {
 //     ;
 //   }
