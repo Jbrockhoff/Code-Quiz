@@ -1,6 +1,11 @@
+
 var quizContainer = document.getElementById("quiz");
 var resultsContainer = document.getElementById("results");
+var finalScore = document.getElementById("score");
 var submitButton = document.getElementById("submit");
+var scoreCount = document.getElementsByClassName("score-count");
+var timerText = document.getElementsByClassName("timer-text");
+
 
 var question = [
     {
