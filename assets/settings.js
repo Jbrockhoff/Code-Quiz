@@ -64,7 +64,9 @@ var question = questions.map(questionGen);
 
 function questionGen() {
     for (var i = 0; i < questions.length; i++) {
-        questions;
+        var realAnswer = i
+        console.log(questions);
+        return;
     }
     
     if (question) {
