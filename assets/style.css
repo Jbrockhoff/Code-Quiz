@@ -11,10 +11,19 @@ header {
     padding: 10px;
 }
 
+h1, h2, p {
+    text-align: center;
+}
+/* p {
+    text-align: center;
+} */
+
 .timer-text {
     text-align: right;
 }
-
+#btn.start {
+    justify-content: center;
+}
 #timer-count {
     text-align: right;
 }
