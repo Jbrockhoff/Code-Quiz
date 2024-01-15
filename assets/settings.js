@@ -1,54 +1,70 @@
 //created objects to take from html
-var quizStart = document.querySelector("#welcome-screen"); 
-var answer = document.querySelector("#answer");
+var startScreen = document.querySelector("#welcome-screen"); 
+var choices = document.querySelector("#answer");
 var endScreen = document.querySelector("#end-screen");
 var startBtn = document.querySelector("#start");
+var questionGen = document.querySelector("#questions");
+var questionNum = document.querySelector("#question-number");
+var message = document.querySelector("#message");
 var sumbitBtn = document.querySelector("#submit");
+var welcome= document.querySelector(".welcome");
+var index = 0
 
 //created array for question sets
 var questions = [
     {
-    question: "Commonly used data types DO NOT include the following: ", 
+      question: "Commonly used data types DO NOT include the following: ", 
+      choices: {
         A:"strings",
         B: "booleans",
         C: "alerts",
         D: "numbers",
+    },
         correctAnswer: "alerts",
     },  
 
+    
     {
         question:  "The condition if/else statement is enclosed within:  ",
-        A: "numbers and strings",
-        B: "curly braces",
-        C: "parentheses",
-        D: "square brackets",
+        choices: {
+          A: "numbers and strings",
+          B: "curly braces",
+          C: "parentheses",
+          D: "square brackets"
+        },  
         correctAnswer: "curly braces"
     },
 
     {
         question:  "Arrays in JavaScript can be used to store: ",
-        A: "numbers and strings",
-        B: "other arrays",
-        C: "booleans",
-        D: "all of the above",
+        choices: {
+          A: "numbers and strings",
+          B: "other arrays",
+          C: "booleans",
+          D: "all of the above",
+        },
         correctAnswer: "all of the above"
     },
 
     {
         question:  "String valuesmust be enclosed within ________ when assigned to variables: ",
-        A: "commas",
-        B: "curly braces",
-        C: "quotes",
-        D: "parentheses",
+        choices: {
+          A: "commas",
+          B: "curly braces",
+          C: "quotes",
+          D: "parentheses",
+        },
         correctAnswer: "quotes"
     },
 
     {
         question:  "A very useful tool in debugging for printing content to the debugger is: ",
-        A: "JavaScript",
-        B: "Terminal/Bash",
-        C: "for loops",
-        D: "console.log",
+        choices: {
+          A: "JavaScript",
+          B: "Terminal/Bash",
+          C: "for loops",
+          D: "console.log",
+        },
         correctAnswer: "console.log"
     },
 ]
@@ -57,17 +73,8 @@ var questions = [
 var timerCount = document.querySelector("#timer-count");
 var timerText= document.querySelector(".timer-text");
 var timer;
-var timeLeft = 100;
-
-var question = questions.map(questionGen);
-
-function questionGen() {
-    for (var i = 0; i < questions.length; i++) {
-        var rightAnswer = i
-        console.log(questions);
-        return;
-    }
-} 
+var timeLeft = questions.length * 10;
+ 
 
 //created a countdown timer
 function startTimer() {
@@ -77,15 +84,75 @@ function startTimer() {
 
     if (timeLeft === 0) {
         clearInterval(timer)
-    //}
-    return timerCount;
     }
+      return timerCount;
     }, 1000);
 }
 
 
-startBtn.addEventListener("click", startTimer);
-submitButton.addEventListener('click', showResults);
+//hides main screen and removes hide option on all questions
+function startQuiz() {
+    startScreen.classList.add("hide");
+    questionGen.classList.remove("hide");
+    startTimer();
+    questionDisplay();
+}
+
+//generates the choices into separate lists based on question set
+function questionDisplay() {
+    choices.textContent = "";
+    message.textContent = "";
+    questionNum.textConent = questions[index].question;
+    var ol = document.createElement("ol");
+
+    var li1=document.createElement("li");
+    li1.textContent = questions[index].choices.A;
+    
+    var li2=document.createElement("li");
+    li2.textContent = questions[index].choices.B;
+    
+    var li3=document.createElement("li");
+    li3.textContent = questions[index].choices.C;
+
+    
+    var li4=document.createElement("li");
+    li4.textContent = questions[index].choices.D;
+
+    ol.appendChild(li1);
+    ol.appendChild(li2);
+    ol.appendChild(li3);
+    ol.appendChild(li4);
+    choices.appendChild(ol);
+};
+
+
+//checks answer and brings up next question
+function nextQuestion (event) {
+    var userSelection = event.target.textContent;
+    checkAnswers(userSelection)
+    index++
+    if (index < questions.length)  {
+        setTimeout(questionDisplay, 800);
+    } 
+    else {
+        clearInterval(timer)
+    }
+}
+
+//checks answers and returns correct or wrong based on selection
+function checkAnswers (userSelection) {
+    if (questions[index].correctAnswer === userSelection) {
+        message.textContent = "Correct!";
+    }
+    else {
+        message.textContent = "Wrong!";
+        timeLeft= timeLeft - 15;
+    }
+}
+
+choices.addEventListener("click", nextQuestion);
+startBtn.addEventListener("click", startQuiz);
+//submitButton.addEventListener('click', showResults);
 
 
 
