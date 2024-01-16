@@ -6,8 +6,9 @@ var startBtn = document.getElementById("start");
 var questionGen = document.getElementById("questions");
 var questionNum = document.getElementById("question-number");
 var message = document.getElementById("message");
-var sumbitBtn = document.getElementById("submit");
+var submitBtn = document.getElementById("submit");
 var scoreEl = document.getElementById("score");
+var initialsEl = document.getElementById("initials");
 var welcome = document.getElementsByClassName("welcome");
 var finalScore = 0;
 var index = 0;
@@ -83,8 +84,8 @@ function startTimer() {
   timer = setInterval(function () {
     timeLeft--;
     timerCount.textContent = timeLeft;
-
     if (timeLeft === 0) {
+      endQuiz();
       clearInterval(timer);
     }
     return timerCount;
@@ -106,7 +107,7 @@ function endQuiz() {
  endScreen.classList.remove("hide");
  scoreEl.textContent = timeLeft;
  finalScore = timeLeft;
- if (timer >= 0) {
+ if (timeLeft <= 0) {
     scoreEl = timer;
     finalScore.textContent = timeLeft;
  }  
@@ -134,6 +135,9 @@ function questionDisplay() {
 function nextQuestion(event) {
   var userSelection = event.target;
   checkAnswers(userSelection);
+  if (timeLeft <= 0) {
+    endQuiz();
+  }
   index++;
   if (index < questions.length) {
     setTimeout(questionDisplay, 800);
@@ -150,13 +154,41 @@ function checkAnswers(userSelection) {
   } else {
     message.textContent = "Wrong!";
     timeLeft = timeLeft - 15;
+    if (timeLeft <= 0) {
+        timeLeft = 0;
+        timerCount.textContent = timeLeft;
+        clearInterval(timer);
+    }
   }
 }
 
-//function display
+
+function saveScore() {
+    var initials = initialsEl.value
+    console.log("initials, time", initials, timeLeft)
+    var newScore = {
+        score: timeLeft,
+        initials: initials, 
+    }
+
+    var savedScores = JSON.parse(localStorage.getItem("scores")) || []
+    console.log("savedScores", savedScores)
+    savedScores.push(newScore)
+    localStorage.setItem("scores",JSON.stringify(savedScores))
+
+}
+
+//add high scores with get item and commit to local storage,
+// start over button to return to start screen
+
+
 choices.addEventListener("click", nextQuestion);
 startBtn.addEventListener("click", startQuiz);
-//submitButton.addEventListener("click", submitInitials);
+submitBtn.addEventListener("click", saveScore);
+
+
+
+
 //function submitInitials
 //localstorage
 
