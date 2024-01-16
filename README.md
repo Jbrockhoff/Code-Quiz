@@ -14,3 +14,7 @@ https://www.sitepoint.com/simple-javascript-quiz/
 http://w3schools.com for html, CSS, and Javascript
 
 https://www.geeksforgeeks.org/how-to-create-a-simple-javascript-quiz/
+
+Tutoring Assitance from TA Ian Von Fange and Anastasia Warren
+
+##
