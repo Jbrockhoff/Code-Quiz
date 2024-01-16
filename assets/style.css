@@ -50,6 +50,11 @@ li {
     display: none;
 }
 
+.high-scores-container {
+    display: none;
+    height: 100%;
+}  
+
 #timer-count {
     text-align: right;
     

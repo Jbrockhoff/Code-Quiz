@@ -9,6 +9,7 @@ var message = document.getElementById("message");
 var submitBtn = document.getElementById("submit");
 var scoreEl = document.getElementById("score");
 var initialsEl = document.getElementById("initials");
+var highScores = document.getElementById("high-scores")
 var welcome = document.getElementsByClassName("welcome");
 var finalScore = 0;
 var index = 0;
@@ -165,19 +166,51 @@ function checkAnswers(userSelection) {
 //this saves, stores, and returns scores
 function saveScore() {
     var initials = initialsEl.value
-    console.log("initials, time", initials, timeLeft)
+    console.log("initials, time", initials, timeLeft);
     var newScore = {
         score: timeLeft,
         initials: initials, 
     }
 
     var savedScores = JSON.parse(localStorage.getItem("scores")) || []
-    console.log("savedScores", savedScores)
-    savedScores.push(newScore)
-    localStorage.setItem("scores",JSON.stringify(savedScores))
-
+    console.log("savedScores", savedScores);
+    savedScores.push(newScore);
+    localStorage.setItem("scores",JSON.stringify(savedScores));
 }
 
+
+
+
+//  function highScore () {
+//     var highScores = localStorage.getItem("saveScore");
+//     highScores.classList.remove("hide");
+//  }
+//     saveScore(submitBtn);
+    // if (highScores > saveScore) {
+    //     endScreen.classList.remove("hide")
+    //     highScores.classList.remove("hide")
+    //     highScores.textContent = "hello"
+    // }
+    //     // endScreen.classList.remove("hide")
+    //     // highScores.classList.remove("hide")
+    //     // localStorage.getItem("savedScores")
+    // }
+ //}
+
+//add high scores with get item and commit to local storage
+
+
+//after submit button, go to high scores
+//replace highest score when it exceeds the stored highest score
+
+//   if (localStorage) {
+//     var highScores = localStorage.getitem("savedScores",JSON.stringify(savedScores));
+//     var state = JSON.parse(saveScore);
+//   }
+
+
+
+    
 //add high scores with get item and commit to local storage,
 // start over button to return to start screen
 
@@ -188,7 +221,7 @@ submitBtn.addEventListener("click", saveScore);
 
 
 //function for showResults?
-//need back button 
+//need back button mayvbe
 //need local storage? Clarification needed
 //need high scores page to display high scores
 
