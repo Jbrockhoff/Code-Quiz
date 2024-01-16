@@ -1,4 +1,4 @@
-//created objects to take from html
+//created global objects
 var startScreen = document.getElementById("welcome-screen");
 var choices = document.getElementById("answers");
 var endScreen = document.getElementById("end-screen");
@@ -73,8 +73,8 @@ var questions = [
 ];
 
 //set vars for objects used in timer
-var timerCount = document.querySelector("#timer-count");
-var timerText = document.querySelector(".timer-text");
+var timerCount = document.getElementById("timer-count");
+var timerText = document.getElementsByClassName("timer-text");
 var timer;
 var timeLeft = questions.length * 10;
 
@@ -100,15 +100,17 @@ function startQuiz() {
 }
 
 //shows final screen and user score
-//STILL NOT WORKING
 function endQuiz() {
  clearInterval(timer);
- questionGen.classList.add("hide")
- endScreen.classList.remove("hide")
- scoreEl.textContent = timeLeft
- finalScore = timeLeft   
+ questionGen.classList.add("hide");
+ endScreen.classList.remove("hide");
+ scoreEl.textContent = timeLeft;
+ finalScore = timeLeft;
+ if (timer >= 0) {
+    scoreEl = timer;
+    finalScore.textContent = timeLeft;
+ }  
 }
-
 
 //generates the choices into separate lists based on question set
 function questionDisplay() {
@@ -137,10 +139,11 @@ function nextQuestion(event) {
     setTimeout(questionDisplay, 800);
   } else {
     clearInterval(timer);
+    endQuiz();
   }
 }
 
-//checks answers and returns correct or wrong based on selection
+//returns correct or wrong based on user selection
 function checkAnswers(userSelection) {
   if (questions[index].correctAnswer === userSelection.dataset.correct) {
     message.textContent = "Correct!";
@@ -150,19 +153,23 @@ function checkAnswers(userSelection) {
   }
 }
 
-
+//function display
 choices.addEventListener("click", nextQuestion);
 startBtn.addEventListener("click", startQuiz);
-//submitButton.addEventListener('click', showResults);
+//submitButton.addEventListener("click", submitInitials);
+//function submitInitials
+//localstorage
 
-
-//need buttons centered for my own enjoyment
+//function for showResults?
+//need back button 
+//timer score goes negative, how can I stop it at 0?
 //need local storage? Clarification needed
 //need rules for when all answers are complete/timer hits 0
-//need score page with box for client input initials
-//need high scores page to display high scores/allow client to go back to start
+//need score page with box for client input initials that functions
+//need high scores page to display high scores
 //can we store high scores or is that too much
 //CSS help?
 //Bootstrap or no?
+//need buttons centered for my own enjoyment
 
 
