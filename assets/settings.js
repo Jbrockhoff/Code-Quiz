@@ -162,7 +162,7 @@ function checkAnswers(userSelection) {
   }
 }
 
-
+//this saves, stores, and returns scores
 function saveScore() {
     var initials = initialsEl.value
     console.log("initials, time", initials, timeLeft)
@@ -187,21 +187,10 @@ startBtn.addEventListener("click", startQuiz);
 submitBtn.addEventListener("click", saveScore);
 
 
-
-
-//function submitInitials
-//localstorage
-
 //function for showResults?
 //need back button 
-//timer score goes negative, how can I stop it at 0?
 //need local storage? Clarification needed
-//need rules for when all answers are complete/timer hits 0
-//need score page with box for client input initials that functions
 //need high scores page to display high scores
-//can we store high scores or is that too much
-//CSS help?
-//Bootstrap or no?
-//need buttons centered for my own enjoyment
+
 
 
