@@ -9,7 +9,6 @@ var message = document.getElementById("message");
 var submitBtn = document.getElementById("submit");
 var scoreEl = document.getElementById("score");
 var initialsEl = document.getElementById("initials");
-//var highScores = document.getElementById("high-scores")
 var welcome = document.getElementsByClassName("welcome");
 var finalScore = 0;
 var index = 0;
